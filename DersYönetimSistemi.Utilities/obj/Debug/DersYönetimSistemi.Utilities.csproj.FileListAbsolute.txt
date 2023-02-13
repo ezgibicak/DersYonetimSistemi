@@ -1,0 +1,12 @@
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\bin\Debug\DersYönetimSistemi.Utilities.dll
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\bin\Debug\DersYönetimSistemi.Utilities.pdb
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.csprojAssemblyReference.cache
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.dll
+C:\Users\AhmetMert\source\repos\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.pdb
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\bin\Debug\DersYönetimSistemi.Utilities.dll
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\bin\Debug\DersYönetimSistemi.Utilities.pdb
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.dll
+C:\Users\Lenovo\Desktop\proje\DersYönetimSistemi.WebUI\DersYönetimSistemi.Utilities\obj\Debug\DersYönetimSistemi.Utilities.pdb

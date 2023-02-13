@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/LayoutRegister.cshtml";
+}
+@using DersYönetimSistemi.Model.ViewModel.Front
+@model RegisterViewModel
+@section mystyles{
+    <style>
+        .field-validation-error {
+            color: red;
+            font-size: 12px;
+        }
+
+        select {
+            color: black;
+            height: 20px;
+            font-size: 15px;
+        }
+
+        #ad, #email {
+            color: black;
+            background-color: white;
+        }
+
+        #soyad, #sifre, #sifretekrar {
+            color: black;
+        }
+
+        #DogrulamaKodu {
+            border: none;
+            color: black;
+            text-decoration: none;
+        }
+
+        .data {
+            font-size: 15px;
+        }
+    </style>
+
+}
+@section myscripts{
+    <script src="~/Scripts/Front/Register.js"></script>
+}
+
+<div style="color:black!important" class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+            <div class="card-body">
+                <h2 class="title">KAYIT BİLGİLERİ</h2>
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken();
+                    <div class="col-2">
+                        @Html.TextBoxFor(x => x.Adi, new { placeholder = "İSİM", id = "ad" })
+                        @Html.ValidationMessageFor(x => x.Adi)
+                    </div>
+                    <div class="col-2">
+                        @Html.TextBoxFor(x => x.Soyadi, new { placeholder = "SOYİSİM", id = "soyad" })
+                        @Html.ValidationMessageFor(x => x.Soyadi)
+                    </div>
+                    <div class="col-2">
+                        @Html.TextBoxFor(x => x.Email, new { placeholder = "EMAIL", id = "email" })
+                        @Html.ValidationMessageFor(x => x.Email)
+                    </div>
+                    <div class="col-2">
+                        @Html.PasswordFor(x => x.Sifre, new { placeholder = "ŞİFRE", id = "sifre" })
+                        @Html.ValidationMessageFor(x => x.Sifre)
+                    </div>
+                    <div class="col-2">
+                        @Html.PasswordFor(x => x.SifreTekrar, new { placeholder = "ŞİFRE TEKRAR", id = "sifretekrar" })
+                        @Html.ValidationMessageFor(x => x.SifreTekrar)
+                    </div>
+                    <div class="col-2">
+                        @Html.TextBoxFor(x => x.DogrulamaKodu, new { placeholder = "DOĞRULAMA KODU", id = "dogrulamaKodu" })
+                        @Html.ValidationMessageFor(x => x.DogrulamaKodu)
+                    </div>
+                    <div class="col-2">
+                        <img id="imgCaptcha" src="/Home/Captcha" />
+                        <img width="40" style="cursor:pointer" id="Refresh" src="~/Content/images/refresh.png" />
+                    </div>
+                    <div class="col-2">
+                        @Html.DropDownListFor(x => x.SehirID, new SelectList(Model.Sehir, "ID", "SehirAdi"), "Lütfen Şehir Seçiniz.", new { id = "sehirId" })
+                        @Html.ValidationMessageFor(x => x.SehirID)
+                    </div>
+
+                    <div class="col-2">
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green btnKayitOl" type="submit">KAYIT OL</button>
+                            <div class="data" style="margin-top:10px">
+                                @TempData["Mesaj"]
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

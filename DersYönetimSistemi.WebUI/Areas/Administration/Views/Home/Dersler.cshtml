@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Dersler";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+@using DersYönetimSistemi.Model.Domain
+@model  User
+
+<h2>Dersler</h2>
+
+<div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Ders Kodu</th>
+                <th>Derslerim</th>
+               
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Faculty item in Model.FakülteBolumDers)
+            {
+
+                <tr>
+                    <td>
+                        @item.ID
+                    </td>
+                    <td>
+                       @item.KategoriAdi
+
+                    </td>
+                   
+
+                </tr>
+
+            }
+
+
+        </tbody>
+
+    </table>
+</div>

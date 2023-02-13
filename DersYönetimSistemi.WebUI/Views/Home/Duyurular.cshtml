@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/LayoutOther.cshtml";
+}
+@*@section myscripts{
+
+
+    }*@
+
+<div>
+    <h2>Duyurular</h2>
+
+</div>
+
+@using DersYönetimSistemi.Model.Domain
+@model List<Duyurular>
+
+
+
+<div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Duyuru Konusu</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Duyurular item in Model)
+            {
+
+                <tr>
+                    <td>@item.ID</td>
+
+                    <td><a href="/Home/Duyuru/@item.ID" class="Duyuru" id="@item.ID">@item.Duyuru</a></td>
+
+                </tr>
+
+            }
+
+
+        </tbody>
+
+    </table>
+</div>
+
+<link rel="stylesheet" href="~/Style/CustomStyle.css">

@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Profiles";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+@using DersYönetimSistemi.WebUI.MvcHelper
+@section myscripts{
+
+    <script src="~/Scripts/Areas/Yönetim/Kullanici/SifreDegistir.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script>
+        $("#DogumTarihi").mask("99/99/9999")
+        $("#inputTelefon").mask("(999) 999-99-99")
+    </script>
+
+}
+@section mystyles{
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+}
+@Html.Partial("_Loading")
+
+<div class="row">
+    <div class="col-md-3">
+        <!-- Profile Image -->
+        <div class="box box-primary">
+            <div class="box-body box-profile">
+                <img id="img4" class="profile-user-img img-responsive img-circle" src="@SessionManager.AktifKullanici.Resim" alt="User profile picture">
+                <h3 class="profile-username text-center">@SessionManager.AktifKullanici.Adi
+                @SessionManager.AktifKullanici.Soyadi</h3>
+                <p class="text-muted text-center">@SessionManager.AktifKullanici.Email</p>
+                <ul class="list-group list-group-unbordered"></ul>
+                <input id="ResimGüncelle" type="file" style="display:none" />
+                <a id="btnResimGüncelle" class="btn btn-primary btn-block"><b>Resim Güncelle</b></a>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+    </div>
+    <!-- /.col -->
+    <div class="col-md-9">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#ayarlar" data-toggle="tab">Ayarlar</a></li>
+                <li><a href="#sifredegistir" data-toggle="tab">Şifre Değiştir</a></li>
+                <li><a href="#profilbilgileri" data-toggle="tab">Profil Bilgileri</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="active tab-pane" id="ayarlar">
+
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="sifredegistir">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Şifre</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="txtSifre" placeholder="Şifre Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Yeni Şifre</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="txtYeniSifre" placeholder="Yeni Şifre Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Yeni Şifre Tekrar</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="txtYeniSifreTekrar" placeholder="Yeni Şireyi Tekrar Giriniz">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="btnKaydet" type="button" class="btn btn-danger">KAYDET</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="profilbilgileri">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-2 control-label">Ad</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputName" placeholder="Adınız">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastName" class="col-sm-2 control-label">Soyad</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputLastName" placeholder="Soyadınız">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email Adresiniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="DogumTarihi" class="col-sm-2 control-label">Doğum Tarihi</label>
+                            <div class="col-sm-10">
+                                <input type="datetime" class="form-control" id="DogumTarihi" placeholder="Doğum Tarihiniz" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTelefon" class="col-sm-2 control-label">Telefon</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputTelefon" placeholder="Telefon Numaranız">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="btnProfilBilgileriDegistir" class="btn btn-danger">KAYDET</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- /.nav-tabs-custom -->
+    </div>
+    <!-- /.col -->
+</div>

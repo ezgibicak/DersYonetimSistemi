@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "UserControl";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+@using DersYönetimSistemi.Model.ViewModel.Areas.Yönetim.User.LogIn
+@model List<UserControlViewModel>
+@section myscripts{
+    <script src="/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable(
+
+                {          
+                    "language": {
+                        "sDecimal": ",",
+                        "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                        "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                        "sInfoEmpty": "Kayıt yok",
+                        "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                        "sLoadingRecords": "Yükleniyor...",
+                        "sProcessing": "İşleniyor...",
+                        "sSearch": "Ara:",
+                        "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                        "oPaginate": {
+                            "sFirst": "İlk",
+                            "sLast": "Son",
+                            "sNext": "Sonraki",
+                            "sPrevious": "Önceki"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                            "sSortDescending": ": azalan sütun soralamasını aktifleştir"
+                        }
+                    },
+
+                });
+           } )
+           
+        </script>
+
+    <script src="~/Scripts/Areas/Yönetim/Kullanici/KullaniciYönetimi.js"></script>
+    }
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">KULLANICI LİSİTESİ</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ADI</th>
+                    <th>SOYADI</th>
+                    <th>EMAIL</th>
+                    <th>DURUM</th>
+                    <th>ŞEHİR</th>
+                    <th></th>
+                    @*<th></th>
+                    <th></th>*@
+                   
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (UserControlViewModel item in Model)
+                {
+
+                    <tr>
+                        <td>@item.Adi</td>
+                        <td>
+                            @item.Soyadi</td>
+                        <td>@item.Email</td>
+                        <td>
+                            @if (@item.AktifMi == 0)
+                            {
+                                <span class="label label-danger">Email Onayı Bekleniyor.</span>
+                            }
+                            else if (@item.AktifMi == 1)
+                            {
+                                <span class="label label-danger">Yönetici Onayı Bekleniyor.</span>
+                            }
+                            else if (@item.AktifMi == 2)
+                            {
+                                <span class="label label-info">Kullanıcı Onaylandı.</span>
+                            }
+
+                        </td>
+                        <td>@item.SehirAdi</td>
+                        <td>
+                            @if (@item.AktifMi == 0)
+                            {
+                               <button class="btn btn-primary disabled">ONAYLA</button>
+                            }
+                            else if (@item.AktifMi == 1)
+                            {
+                               <button kullaniciid="@item.KullanıcıID" class="btn btn-primary btnOnayla">ONAYLA</button>
+                            }
+                            else if (@item.AktifMi == 2)
+                            {
+                               <button kullaniciid="@item.KullanıcıID" class="btn btn-success btnOnayIptal">ONAY İPTAL</button>
+                            }
+                        </td>
+                       @* <td><a kullaniciid="@item.KullanıcıID" class="btnKullaniciDüzenle" href="/KullaniciDüzenle/@item.KullanıcıID"> <img width="40" src="~/Content/images/pencil_1__.png" /></a></td>*@
+                        <td><a kullaniciid="@item.KullanıcıID" href="/Administration/Home/KullaniciSil/@item.KullanıcıID" class="btnKullaniciSil"><img width="40" src="~/Content/images/Delete-2-128.png" /></a></td>
+                        
+                    </tr>
+
+                }
+
+
+            </tbody>
+        
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+
+
+
+
+
+
+

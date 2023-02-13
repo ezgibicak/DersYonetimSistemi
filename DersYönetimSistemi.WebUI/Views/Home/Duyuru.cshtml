@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Duyuru";
+    Layout = "~/Views/Shared/LayoutOther.cshtml";
+}
+
+@using DersYönetimSistemi.Model.Domain
+@model Duyuruİcerik
+<div>
+    <h2>Duyuru</h2>
+
+</div>
+
+
+<div class="box-body">
+    <table id="duyuru" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Duyuru Numarası</th>
+                <th>Duyuru</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                <tr>
+                    <td>@Model.ID</td>
+
+                    <td>@Model.icerik</td>
+
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>-</td>
+
+                    <td>Bu duyuruya içerik girilmemiştir.</td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</div>
+<link rel="stylesheet" href="~/Style/CustomStyle.css">
+

@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Fakülteler";
+    Layout = "~/Views/Shared/LayoutOther.cshtml";
+}
+
+
+<style>
+    #accordion {
+        font-size: 40px !important;
+        color: black !important;
+    }
+</style>
+@using DersYönetimSistemi.Model.Domain
+@model List<Faculty>
+
+
+<div id="accordion" class="panel-group category-products">
+
+    @foreach (var item in Model.Where(x => x.UstKategoriID == null))
+    {
+
+        <div class="card">
+            @if (Model.Where(x => x.UstKategoriID == item.ID).ToList().Count > 0)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#@item.ID" data-parent="#accordian">
+                                @item.KategoriAdi
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+
+                <div id="@item.ID" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+
+                        @foreach (var altkategori in Model.Where(x => x.UstKategoriID == item.ID))
+                        {
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="headingTwo">
+                                    <h4 class="mb-0">
+                                        <a data-toggle="collapse" data-target="#@altkategori.ID">
+                                            @altkategori.KategoriAdi
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="@altkategori.ID" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @foreach (var dersler in Model.Where(x => x.UstKategoriID == altkategori.ID))
+                                        {
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title"><a href="/Administration/Home/LogIn">@dersler.KategoriAdi</a></h4>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            }
+
+            else
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="/Administration/Home/LogIn">@item.KategoriAdi</a></h4>
+                    </div>
+                </div>
+            }
+        </div>
+
+    }
+</div>
+<link rel="stylesheet" href="~/Style/CustomStyle.css">
+
+
+
+
+

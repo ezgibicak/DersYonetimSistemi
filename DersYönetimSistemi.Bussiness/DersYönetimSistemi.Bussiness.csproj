@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{319C427E-344B-4A99-B56C-F39193DE1D26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DersYönetimSistemi.Bussiness</RootNamespace>
+    <AssemblyName>DersYönetimSistemi.Bussiness</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IDuyuruBS.cs" />
+    <Compile Include="Abstract\IDuyuruİcerikBS.cs" />
+    <Compile Include="Abstract\IFakülteBölümDersBS.cs" />
+    <Compile Include="Abstract\IKullaniciBS.cs" />
+    <Compile Include="Abstract\IRolBS.cs" />
+    <Compile Include="Abstract\ISehirBS.cs" />
+    <Compile Include="Concrete\DuyuruBS.cs" />
+    <Compile Include="Concrete\DuyuruİcerikBS.cs" />
+    <Compile Include="Concrete\FakülteBölümDersBS.cs" />
+    <Compile Include="Concrete\KullaniciBS.cs" />
+    <Compile Include="Concrete\RolBS.cs" />
+    <Compile Include="Concrete\SehirBS.cs" />
+    <Compile Include="DependencyResolver\NinjectBussinessModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DersYönetimSistemi.Core\DersYönetimSistemi.Core.csproj">
+      <Project>{da45420d-3017-427f-8ae2-db2142c142b2}</Project>
+      <Name>DersYönetimSistemi.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DersYönetimSistemi.DataAccess\DersYönetimSistemi.DataAccess.csproj">
+      <Project>{fe5cdb07-29c4-43d6-82a9-dbcf3180c4e7}</Project>
+      <Name>DersYönetimSistemi.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DersYönetimSistemi.Model\DersYönetimSistemi.Model.csproj">
+      <Project>{dcdffcd0-e4d6-4676-8666-1a105edeeb64}</Project>
+      <Name>DersYönetimSistemi.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
